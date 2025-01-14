@@ -2,10 +2,10 @@ const express = require('express');
 const { signup, login } = require('../controllers/authController');
 const router = express.Router();
 
-// Route pour l'inscription
+//inscription
 router.post('/signup', signup);
 
-// Route pour la connexion
+//Connexion
 router.post('/login', login);
 
 module.exports = router;

@@ -1,6 +1,5 @@
 const db = require('../config');
 
-// Ajouter une émargement
 exports.addEmargement = async (req, res) => {
     const { session_id, etudiant_id, status } = req.body;
 
@@ -15,7 +14,6 @@ exports.addEmargement = async (req, res) => {
     }
 };
 
-// Liste des émargements pour une session
 exports.getEmargementsBySession = async (req, res) => {
     const { session_id } = req.params;
 

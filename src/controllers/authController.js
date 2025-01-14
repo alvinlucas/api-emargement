@@ -2,12 +2,11 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../config');
 
-// Inscription
 exports.signup = async (req, res) => {
     const { name, email, password, role } = req.body;
 
     try {
-        const hashedPassword = await bcrypt.hash(password, 10); // Hachage du mot de passe
+        const hashedPassword = await bcrypt.hash(password, 10);
         const [result] = await db.execute(
             'INSERT INTO utilisateurs (name, email, password, role) VALUES (?, ?, ?, ?)',
             [name, email, hashedPassword, role]
@@ -18,7 +17,6 @@ exports.signup = async (req, res) => {
     }
 };
 
-// Connexion
 exports.login = async (req, res) => {
     const { email, password } = req.body;
 

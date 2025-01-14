@@ -1,6 +1,6 @@
 const db = require('../config');
 
-// Création d'une session
+
 exports.createSession = async (req, res) => {
     const { title, date, formateur_id } = req.body;
 
@@ -15,7 +15,7 @@ exports.createSession = async (req, res) => {
     }
 };
 
-// Liste des sessions
+
 exports.getAllSessions = async (req, res) => {
     try {
         const [sessions] = await db.execute('SELECT * FROM sessions');
@@ -25,7 +25,7 @@ exports.getAllSessions = async (req, res) => {
     }
 };
 
-// Modification d'une session
+
 exports.updateSession = async (req, res) => {
     const { id } = req.params;
     const { title, date } = req.body;
@@ -44,7 +44,6 @@ exports.updateSession = async (req, res) => {
     }
 };
 
-// Suppression d'une session
 exports.deleteSession = async (req, res) => {
     const { id } = req.params;
 

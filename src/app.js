@@ -7,26 +7,22 @@ const db = require('./config'); // Charger la configuration de la base de donné
 
 const app = express();
 
-// Middleware pour traiter les données JSON dans les requêtes
 app.use(express.json());
 
-// Tester la connexion à la base de données
 (async () => {
     try {
         await db.query('SELECT 1');
         console.log('Connexion à la base de données réussie !');
     } catch (error) {
         console.error('Erreur de connexion à la base de données :', error);
-        process.exit(1); // Arrêter l'application si la connexion échoue
+        process.exit(1);
     }
 })();
 
-// Utilisation des routes
-app.use('/auth', authRoutes); // Routes pour l'authentification
-app.use('/sessions', sessionRoutes); // Routes pour la gestion des sessions
-app.use('/emargements', emargementRoutes); // Routes pour la gestion des émargements
+app.use('/auth', authRoutes);
+app.use('/sessions', sessionRoutes);
+app.use('/emargements', emargementRoutes);
 
-// Démarrer le serveur
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);
