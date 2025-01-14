@@ -1,9 +1,9 @@
 const express = require('express');
-const authRoutes = require('./routes/authRoutes'); // Routes pour l'authentification (signup, login)
-const sessionRoutes = require('./routes/sessionRoutes'); // Routes pour la gestion des sessions
-const emargementRoutes = require('./routes/emargementRoutes'); // Routes pour la gestion des émargements
-require('dotenv').config(); // Charger les variables d'environnement
-const db = require('./config'); // Charger la configuration de la base de données
+const authRoutes = require('./routes/authRoutes');
+const sessionRoutes = require('./routes/sessionRoutes');
+const emargementRoutes = require('./routes/emargementRoutes');
+require('dotenv').config();
+const db = require('./config');
 
 const app = express();
 
